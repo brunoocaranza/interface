@@ -4195,6 +4195,10 @@
   resolved "https://registry.yarnpkg.com/@uniswap/analytics-events/-/analytics-events-1.2.0.tgz#9a509cd782dcf170b3b7cf1207126ee197658cc5"
   integrity sha512-CGvvG6jiGx/ez5rJqWavAV3CDlecX2ZR7oBl1mMYVSnzXv9GsoleeiZAYcETJvEt2hKhmEq0tg7xjwP0pMav9A==
 
+"@uniswap/analytics-events@file:uniswap-analytics-events-dev.tgz":
+  version "0.0.1"
+  resolved "file:uniswap-analytics-events-dev.tgz#0cab81ace2b515ca23ecd41f6b48f297db66b674"
+
 "@uniswap/analytics@1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@uniswap/analytics/-/analytics-1.2.0.tgz#38452f31ca249903e0bdc8739f42ed437fdc4911"

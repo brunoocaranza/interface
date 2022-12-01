@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Trans } from '@lingui/macro'
 import { sendAnalyticsEvent, useTrace } from '@uniswap/analytics'
-import { EventName, PageName } from '@uniswap/analytics-events'
 import { MouseoverTooltip } from 'components/Tooltip'
+import { NFTEventName, InterfacePageName } from '@uniswap/analytics-events'
 import Tooltip from 'components/Tooltip'
 import { Box } from 'nft/components/Box'
 import { bodySmall } from 'nft/css/common.css'
@@ -51,7 +51,7 @@ export const CollectionAsset = ({
   const itemsInBag = useBag((state) => state.itemsInBag)
   const bagExpanded = useBag((state) => state.bagExpanded)
   const setBagExpanded = useBag((state) => state.setBagExpanded)
-  const trace = useTrace({ page: PageName.NFT_COLLECTION_PAGE })
+  const trace = useTrace({ page: InterfacePageName.NFT_COLLECTION_PAGE })
 
   const { isSelected } = useMemo(() => {
     const matchingItems = itemsInBag.filter(
@@ -85,7 +85,7 @@ export const CollectionAsset = ({
       if (!bagExpanded && !isMobile && !bagManuallyClosed) {
         setBagExpanded({ bagExpanded: true })
       }
-      sendAnalyticsEvent(EventName.NFT_BUY_ADDED, {
+      sendAnalyticsEvent(NFTEventName.NFT_BUY_ADDED, {
         collection_address: asset.address,
         token_id: asset.tokenId,
         token_type: asset.tokenType,
