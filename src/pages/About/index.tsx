@@ -1,5 +1,5 @@
 import { Trace } from '@uniswap/analytics'
-import { PageName } from '@uniswap/analytics-events'
+import { InterfacePageName } from '@uniswap/analytics-events'
 import { ButtonOutlined } from 'components/Button'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { useIsDarkMode } from 'state/user/hooks'
@@ -139,7 +139,7 @@ export default function About() {
   const thumbnailImgSrc = isDarkMode ? selectedStep?.darkImgSrc : selectedStep?.lightImgSrc
 
   return (
-    <Trace page={PageName.ABOUT_PAGE} shouldLogImpression>
+    <Trace page={InterfacePageName.ABOUT_PAGE} shouldLogImpression>
       <Page isDarkMode={isDarkMode} titleHeight={titleHeight}>
         <Content>
           <Title ref={titleRef} isDarkMode={isDarkMode}>
