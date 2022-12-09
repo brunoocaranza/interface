@@ -52,7 +52,7 @@ const Container = styled.div<{ hideInput: boolean }>`
   width: ${({ hideInput }) => (hideInput ? '100%' : 'initial')};
 `
 
-const CurrencySelect = styled(ButtonGray) <{
+const CurrencySelect = styled(ButtonGray)<{
   visible: boolean
   selected: boolean
   hideInput?: boolean
@@ -138,7 +138,7 @@ const Aligner = styled.span`
   width: 100%;
 `
 
-const StyledDropDown = styled(DropDown) <{ selected: boolean }>`
+const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
   margin: 0 0.25rem 0 0.35rem;
   height: 35%;
   margin-left: 8px;
@@ -175,7 +175,7 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   }
 `
 
-const StyledNumericalInput = styled(NumericalInput) <{ $loading: boolean }>`
+const StyledNumericalInput = styled(NumericalInput)<{ $loading: boolean }>`
   ${loadingOpacityMixin};
   text-align: left;
   font-size: 36px;
@@ -297,8 +297,8 @@ export default function SwapCurrencyInputPanel({
                   <StyledTokenName className="token-symbol-container" active={Boolean(currency && currency.symbol)}>
                     {(currency && currency.symbol && currency.symbol.length > 20
                       ? currency.symbol.slice(0, 4) +
-                      '...' +
-                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
+                        '...' +
+                        currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
                       : currency?.symbol) || <Trans>Select token</Trans>}
                   </StyledTokenName>
                 )}
