@@ -85,8 +85,8 @@ const Collection = () => {
           ? BAG_WIDTH + FILTER_WIDTH
           : FILTER_WIDTH
         : isBagExpanded && !isMobile
-          ? BAG_WIDTH
-          : 0,
+        ? BAG_WIDTH
+        : 0,
     config: {
       duration: TRANSITION_DURATIONS.medium,
       easing: easings.easeOutSine,
@@ -185,23 +185,23 @@ const Collection = () => {
                 >
                   {isActivityToggled
                     ? contractAddress && (
-                      <Activity
-                        contractAddress={contractAddress}
-                        rarityVerified={collectionStats?.rarityVerified ?? false}
-                        collectionName={collectionStats?.name ?? ''}
-                        chainId={chainId}
-                      />
-                    )
-                    : contractAddress &&
-                    collectionStats && (
-                      <Suspense fallback={<CollectionNftsAndMenuLoading />}>
-                        <CollectionNfts
-                          collectionStats={collectionStats || ({} as GenieCollection)}
+                        <Activity
                           contractAddress={contractAddress}
-                          rarityVerified={collectionStats?.rarityVerified}
+                          rarityVerified={collectionStats?.rarityVerified ?? false}
+                          collectionName={collectionStats?.name ?? ''}
+                          chainId={chainId}
                         />
-                      </Suspense>
-                    )}
+                      )
+                    : contractAddress &&
+                      collectionStats && (
+                        <Suspense fallback={<CollectionNftsAndMenuLoading />}>
+                          <CollectionNfts
+                            collectionStats={collectionStats || ({} as GenieCollection)}
+                            contractAddress={contractAddress}
+                            rarityVerified={collectionStats?.rarityVerified}
+                          />
+                        </Suspense>
+                      )}
                 </AnimatedBox>
               </CollectionDisplaySection>
             </>

@@ -43,13 +43,13 @@ const StyledCard = styled(OutlineCard)`
   border: 1px solid ${({ theme }) => theme.backgroundOutline};
 `
 
-const StyledHeaderRow = styled(RowBetween) <{ disabled: boolean; open: boolean }>`
+const StyledHeaderRow = styled(RowBetween)<{ disabled: boolean; open: boolean }>`
   padding: 0;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'initial' : 'pointer')};
 `
 
-const RotatingArrow = styled(ChevronDown) <{ open?: boolean }>`
+const RotatingArrow = styled(ChevronDown)<{ open?: boolean }>`
   transform: ${({ open }) => (open ? 'rotate(180deg)' : 'none')};
   transition: transform 0.1s linear;
 `
@@ -183,9 +183,9 @@ export default function SwapDetailsDropdown({
             </RowFixed>
             <RowFixed>
               {!trade?.gasUseEstimateUSD ||
-                showDetails ||
-                !chainId ||
-                !SUPPORTED_GAS_ESTIMATE_CHAIN_IDS.includes(chainId) ? null : (
+              showDetails ||
+              !chainId ||
+              !SUPPORTED_GAS_ESTIMATE_CHAIN_IDS.includes(chainId) ? null : (
                 <GasEstimateBadge
                   trade={trade}
                   loading={syncing || loading}

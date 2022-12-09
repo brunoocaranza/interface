@@ -60,9 +60,9 @@ const CreateProposalButton = ({
 }) => {
   const formattedProposalThreshold = proposalThreshold
     ? JSBI.divide(
-      proposalThreshold.quotient,
-      JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(proposalThreshold.currency.decimals))
-    ).toLocaleString()
+        proposalThreshold.quotient,
+        JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(proposalThreshold.currency.decimals))
+      ).toLocaleString()
     : undefined
 
   return (
@@ -176,11 +176,11 @@ export default function CreateProposal() {
     () =>
       Boolean(
         !proposalAction ||
-        !isAddress(toAddressValue) ||
-        !currencyValue?.isToken ||
-        amountValue === '' ||
-        titleValue === '' ||
-        bodyValue === ''
+          !isAddress(toAddressValue) ||
+          !currencyValue?.isToken ||
+          amountValue === '' ||
+          titleValue === '' ||
+          bodyValue === ''
       ),
     [proposalAction, toAddressValue, currencyValue, amountValue, titleValue, bodyValue]
   )

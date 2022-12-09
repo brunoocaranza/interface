@@ -91,15 +91,15 @@ export function CurrencySearch({
     () =>
       !balancesAreLoading
         ? filteredTokens
-          .filter((token) => {
-            // If there is no query, filter out unselected user-added tokens with no balance.
-            if (!debouncedQuery && token instanceof UserAddedToken) {
-              if (selectedCurrency?.equals(token) || otherSelectedCurrency?.equals(token)) return true
-              return balances[token.address]?.greaterThan(0)
-            }
-            return true
-          })
-          .sort(tokenComparator.bind(null, balances))
+            .filter((token) => {
+              // If there is no query, filter out unselected user-added tokens with no balance.
+              if (!debouncedQuery && token instanceof UserAddedToken) {
+                if (selectedCurrency?.equals(token) || otherSelectedCurrency?.equals(token)) return true
+                return balances[token.address]?.greaterThan(0)
+              }
+              return true
+            })
+            .sort(tokenComparator.bind(null, balances))
         : [],
     [balances, balancesAreLoading, debouncedQuery, filteredTokens, otherSelectedCurrency, selectedCurrency]
   )
@@ -181,7 +181,11 @@ export function CurrencySearch({
 
   return (
     <ContentWrapper>
-      <Trace name={InterfaceEventName.TOKEN_SELECTOR_OPENED} modal={InterfaceModalName.TOKEN_SELECTOR} shouldLogImpression>
+      <Trace
+        name={InterfaceEventName.TOKEN_SELECTOR_OPENED}
+        modal={InterfaceModalName.TOKEN_SELECTOR}
+        shouldLogImpression
+      >
         <PaddedColumn gap="16px">
           <RowBetween>
             <Text fontWeight={500} fontSize={16}>

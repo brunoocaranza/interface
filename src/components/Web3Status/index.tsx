@@ -96,7 +96,7 @@ const Web3StatusConnectWrapper = styled.div<{ faded?: boolean }>`
   }
 `
 
-const Web3StatusConnected = styled(Web3StatusGeneric) <{
+const Web3StatusConnected = styled(Web3StatusGeneric)<{
   pending?: boolean
   isClaimAvailable?: boolean
 }>`
@@ -112,7 +112,7 @@ const Web3StatusConnected = styled(Web3StatusGeneric) <{
     :focus {
       border: 1px solid
         ${({ pending, theme }) =>
-    pending ? darken(0.1, theme.deprecated_primary1) : darken(0.1, theme.deprecated_bg2)};
+          pending ? darken(0.1, theme.deprecated_primary1) : darken(0.1, theme.deprecated_bg2)};
     }
   }
 
@@ -175,10 +175,10 @@ const StyledConnectButton = styled.button`
   padding: 10px 8px 10px 12px;
 
   transition: ${({
-  theme: {
-    transition: { duration, timing },
-  },
-}) => `${duration.fast} color ${timing.in}`};
+    theme: {
+      transition: { duration, timing },
+    },
+  }) => `${duration.fast} color ${timing.in}`};
 
   :hover,
   :active,

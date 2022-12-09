@@ -32,7 +32,7 @@ interface FailedCall extends SwapCallEstimate {
   error: Error
 }
 
-class InvalidSwapError extends Error { }
+class InvalidSwapError extends Error {}
 
 // returns a function that will execute a swap, if the parameters are all valid
 export default function useSendSwapTransaction(
@@ -56,11 +56,11 @@ export default function useSendSwapTransaction(
               !value || isZero(value)
                 ? { from: account, to: address, data: calldata }
                 : {
-                  from: account,
-                  to: address,
-                  data: calldata,
-                  value,
-                }
+                    from: account,
+                    to: address,
+                    data: calldata,
+                    value,
+                  }
 
             return provider
               .estimateGas(tx)

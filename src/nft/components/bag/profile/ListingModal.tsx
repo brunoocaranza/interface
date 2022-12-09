@@ -130,21 +130,21 @@ const ListingModal = () => {
       verifyStatus(collectionRow.status) &&
         (isMobile
           ? await approveCollectionRow(
-            collectionRow,
-            collectionsRequiringApproval,
-            setCollectionsRequiringApproval,
-            signer,
-            looksRareAddress,
-            pauseAllRows
-          )
+              collectionRow,
+              collectionsRequiringApproval,
+              setCollectionsRequiringApproval,
+              signer,
+              looksRareAddress,
+              pauseAllRows
+            )
           : approveCollectionRow(
-            collectionRow,
-            collectionsRequiringApproval,
-            setCollectionsRequiringApproval,
-            signer,
-            looksRareAddress,
-            pauseAllRows
-          ))
+              collectionRow,
+              collectionsRequiringApproval,
+              setCollectionsRequiringApproval,
+              signer,
+              looksRareAddress,
+              pauseAllRows
+            ))
     }
   }
 

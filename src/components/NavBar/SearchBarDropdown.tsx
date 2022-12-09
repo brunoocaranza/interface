@@ -126,17 +126,17 @@ export const SearchBarDropdown = ({
     () =>
       trendingCollectionResults
         ? trendingCollectionResults
-          .map((collection) => ({
-            ...collection,
-            collectionAddress: collection.address,
-            floorPrice: formatEthPrice(collection.floor?.toString()),
-            stats: {
-              total_supply: collection.totalSupply,
-              one_day_change: collection.floorChange,
-              floor_price: formatEthPrice(collection.floor?.toString()),
-            },
-          }))
-          .slice(0, isNFTPage ? 3 : 2)
+            .map((collection) => ({
+              ...collection,
+              collectionAddress: collection.address,
+              floorPrice: formatEthPrice(collection.floor?.toString()),
+              stats: {
+                total_supply: collection.totalSupply,
+                one_day_change: collection.floorChange,
+                floor_price: formatEthPrice(collection.floor?.toString()),
+              },
+            }))
+            .slice(0, isNFTPage ? 3 : 2)
         : [...Array<GenieCollection>(isNFTPage ? 3 : 2)],
     [isNFTPage, trendingCollectionResults]
   )
@@ -166,8 +166,8 @@ export const SearchBarDropdown = ({
   const totalSuggestions = hasInput
     ? tokens.length + collections.length
     : Math.min(shortenedHistory.length, 2) +
-    (isNFTPage || !isTokenPage ? trendingCollections?.length ?? 0 : 0) +
-    (isTokenPage || !isNFTPage ? trendingTokens?.length ?? 0 : 0)
+      (isNFTPage || !isTokenPage ? trendingCollections?.length ?? 0 : 0) +
+      (isTokenPage || !isNFTPage ? trendingTokens?.length ?? 0 : 0)
 
   // Navigate search results via arrow keys
   useEffect(() => {

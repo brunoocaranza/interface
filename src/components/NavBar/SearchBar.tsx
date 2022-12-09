@@ -156,7 +156,8 @@ export const SearchBar = () => {
       >
         <Row
           className={clsx(
-            ` ${styles.nftSearchBar} ${!isOpen && !isMobile && magicalGradientOnHover} ${isMobileOrTablet && (isOpen ? styles.visible : styles.hidden)
+            ` ${styles.nftSearchBar} ${!isOpen && !isMobile && magicalGradientOnHover} ${
+              isMobileOrTablet && (isOpen ? styles.visible : styles.hidden)
             } `
           )}
           borderRadius={isOpen || isMobileOrTablet ? undefined : '12'}

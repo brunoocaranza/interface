@@ -91,7 +91,7 @@ const BadgeText = styled.div`
 // responsive text
 // disable the warning because we don't use the end prop, we just want to filter it out
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Label = styled(({ end, ...props }) => <ThemedText.DeprecatedLabel {...props} />) <{ end?: boolean }>`
+const Label = styled(({ end, ...props }) => <ThemedText.DeprecatedLabel {...props} />)<{ end?: boolean }>`
   display: flex;
   font-size: 16px;
   justify-content: ${({ end }) => (end ? 'flex-end' : 'flex-start')};
@@ -388,10 +388,10 @@ export function PositionPage() {
   const ratio = useMemo(() => {
     return priceLower && pool && priceUpper
       ? getRatio(
-        inverted ? priceUpper.invert() : priceLower,
-        pool.token0Price,
-        inverted ? priceLower.invert() : priceUpper
-      )
+          inverted ? priceUpper.invert() : priceLower,
+          pool.token0Price,
+          inverted ? priceLower.invert() : priceUpper
+        )
       : undefined
   }, [inverted, pool, priceLower, priceUpper])
 
@@ -559,11 +559,11 @@ export function PositionPage() {
 
   const showCollectAsWeth = Boolean(
     ownsNFT &&
-    (feeValue0?.greaterThan(0) || feeValue1?.greaterThan(0)) &&
-    currency0 &&
-    currency1 &&
-    (currency0.isNative || currency1.isNative) &&
-    !collectMigrationHash
+      (feeValue0?.greaterThan(0) || feeValue1?.greaterThan(0)) &&
+      currency0 &&
+      currency1 &&
+      (currency0.isNative || currency1.isNative) &&
+      !collectMigrationHash
   )
 
   return loading || poolState === PoolState.LOADING || !feeAmount ? (
@@ -771,7 +771,7 @@ export function PositionPage() {
                           )}
                         </AutoColumn>
                         {ownsNFT &&
-                          (feeValue0?.greaterThan(0) || feeValue1?.greaterThan(0) || !!collectMigrationHash) ? (
+                        (feeValue0?.greaterThan(0) || feeValue1?.greaterThan(0) || !!collectMigrationHash) ? (
                           <ButtonConfirmed
                             disabled={collecting || !!collectMigrationHash}
                             confirmed={!!collectMigrationHash && !isCollectPending}
