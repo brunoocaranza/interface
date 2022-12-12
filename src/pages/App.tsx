@@ -1,5 +1,5 @@
 import { initializeAnalytics, OriginApplication, sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
-import { BasicEventName, CustomUserProperties, getBrowser, InterfacePageName } from '@uniswap/analytics-events'
+import { CustomUserProperties, getBrowser, InterfacePageName, SharedEventName } from '@uniswap/analytics-events'
 import Loader from 'components/Loader'
 import TopLevelModals from 'components/TopLevelModals'
 import { useFeatureFlagsIsLoaded } from 'featureFlags'
@@ -58,7 +58,7 @@ const ANALYTICS_PROXY_URL = process.env.REACT_APP_AMPLITUDE_PROXY_URL
 const COMMIT_HASH = process.env.REACT_APP_GIT_COMMIT_HASH
 initializeAnalytics(ANALYTICS_DUMMY_KEY, OriginApplication.INTERFACE, {
   proxyUrl: ANALYTICS_PROXY_URL,
-  defaultEventName: BasicEventName.PAGE_VIEWED,
+  defaultEventName: SharedEventName.PAGE_VIEWED,
   commitHash: COMMIT_HASH,
   isProductionEnv: isProductionEnv(),
 })
@@ -150,15 +150,17 @@ export default function App() {
   }, [pathname])
 
   useEffect(() => {
-    sendAnalyticsEvent(BasicEventName.APP_LOADED)
+    sendAnalyticsEvent(SharedEventName.APP_LOADED)
     user.set(CustomUserProperties.USER_AGENT, navigator.userAgent)
     user.set(CustomUserProperties.BROWSER, getBrowser())
     user.set(CustomUserProperties.SCREEN_RESOLUTION_HEIGHT, window.screen.height)
     user.set(CustomUserProperties.SCREEN_RESOLUTION_WIDTH, window.screen.width)
-    getCLS(({ delta }: Metric) => sendAnalyticsEvent(BasicEventName.WEB_VITALS, { cumulative_layout_shift: delta }))
-    getFCP(({ delta }: Metric) => sendAnalyticsEvent(BasicEventName.WEB_VITALS, { first_contentful_paint_ms: delta }))
-    getFID(({ delta }: Metric) => sendAnalyticsEvent(BasicEventName.WEB_VITALS, { first_input_delay_ms: delta }))
-    getLCP(({ delta }: Metric) => sendAnalyticsEvent(BasicEventName.WEB_VITALS, { largest_contentful_paint_ms: delta }))
+    getCLS(({ delta }: Metric) => sendAnalyticsEvent(SharedEventName.WEB_VITALS, { cumulative_layout_shift: delta }))
+    getFCP(({ delta }: Metric) => sendAnalyticsEvent(SharedEventName.WEB_VITALS, { first_contentful_paint_ms: delta }))
+    getFID(({ delta }: Metric) => sendAnalyticsEvent(SharedEventName.WEB_VITALS, { first_input_delay_ms: delta }))
+    getLCP(({ delta }: Metric) =>
+      sendAnalyticsEvent(SharedEventName.WEB_VITALS, { largest_contentful_paint_ms: delta })
+    )
   }, [])
 
   useEffect(() => {
